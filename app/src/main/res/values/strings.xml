@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">WallApp</string>
+
+    <!-- Error Messages -->
+    <string name="error_server_timeout">Истекло время ожидания от сервера. Пожалуйста, попробуйте позже!</string>
+    <string name="error_server_internal">Не удалось установить соединение с сервером. Пожалуйста, попробуйте позже!</string>
+    <string name="error_server_network">Нет удалось установить соединение с сервом. Пожалуйста, проверьте свое интернет подключение!</string>
+    <string name="error_server_unknown">Неизвестная ошибка. Пожалуйста, попробуйте позже!</string>
+
 </resources>
