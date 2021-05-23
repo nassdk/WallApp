@@ -62,7 +62,7 @@ abstract class NetworkModule {
             gson: Gson
         ): Retrofit =
             Retrofit.Builder()
-                .baseUrl("https://api.vk.com/method/")
+                .baseUrl("https://k8s-stage.apianon.ru/posts/v1/")
                 .client(client)
                 .addConverterFactory(GsonConverterFactory.create(gson))
                 .build()
