@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="base_padding_4">4dp</dimen>
+    <dimen name="base_padding_8">8dp</dimen>
+    <dimen name="base_padding_12">12dp</dimen>
+    <dimen name="base_padding_16">16dp</dimen>
+    <dimen name="base_padding_20">20dp</dimen>
+    <dimen name="base_padding_24">24dp</dimen>
+    <dimen name="base_padding_32">32dp</dimen>
+    <dimen name="base_padding_42">42dp</dimen>
+    <dimen name="base_padding_48">48dp</dimen>
+
+
+    <dimen name="base_margin_4">4dp</dimen>
+    <dimen name="base_margin_8">8dp</dimen>
+    <dimen name="base_margin_12">12dp</dimen>
+    <dimen name="base_margin_16">16dp</dimen>
+    <dimen name="base_margin_20">20dp</dimen>
+    <dimen name="base_margin_24">24dp</dimen>
+    <dimen name="base_margin_28">28dp</dimen>
+    <dimen name="base_margin_32">32dp</dimen>
+    <dimen name="base_margin_36">36dp</dimen>
+    <dimen name="base_margin_42">42dp</dimen>
+    <dimen name="base_margin_48">48dp</dimen>
+    <dimen name="base_margin_52">52dp</dimen>
+
+
+    <dimen name="text_size_48">48sp</dimen>
+    <dimen name="text_size_32">32sp</dimen>
+    <dimen name="text_size_24">24sp</dimen>
+    <dimen name="text_size_20">20sp</dimen>
+    <dimen name="text_size_18">18sp</dimen>
+    <dimen name="text_size_16">16sp</dimen>
+    <dimen name="text_size_14">14sp</dimen>
+    <dimen name="text_size_12">12sp</dimen>
+    <dimen name="text_size_10">10sp</dimen>
+
+    <dimen name="button_height_56">56dp</dimen>
+    <dimen name="button_height_48">48dp</dimen>
+
+    <dimen name="corner_radius_2">2dp</dimen>
+    <dimen name="corner_radius_4">4dp</dimen>
+    <dimen name="corner_radius_6">6dp</dimen>
+    <dimen name="corner_radius_8">8dp</dimen>
+    <dimen name="corner_radius_10">10dp</dimen>
+    <dimen name="corner_radius_12">12dp</dimen>
+    <dimen name="corner_radius_16">16dp</dimen>
+
+</resources>
