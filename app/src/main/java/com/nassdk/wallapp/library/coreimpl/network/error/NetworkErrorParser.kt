@@ -8,7 +8,7 @@ class NetworkErrorParser @Inject constructor(
 ) {
     fun parseError(response: String?): BaseErrorNetModel.ErrorNetModel? = try {
         val model = gson.fromJson(response, BaseErrorNetModel::class.java)
-        model.error
+        model.errors.firstOrNull()
     } catch (e: Exception) {
         null
     }
