@@ -36,8 +36,6 @@ class PostsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         }
     }
 
-    fun clearData() = posts.clear()
-
     fun renderLoadingForNextPage(loading: Boolean) {
 
         when {
