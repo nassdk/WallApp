@@ -262,4 +262,16 @@
         <item name="colorAccent">@color/gray_5E7697</item>
     </style>
 
+    <style name="PurchaseTypeTabLayout" parent="Widget.Design.TabLayout">
+        <item name="android:background">@drawable/background_f1f2f5_rounded_corners_twenty</item>
+        <item name="tabIndicatorColor">@color/gray_5E7697</item>
+        <item name="tabIndicatorHeight">40dp</item>
+        <item name="tabPaddingStart">@dimen/base_padding_16</item>
+        <item name="tabPaddingEnd">@dimen/base_padding_16</item>
+        <item name="tabIndicator">@drawable/background_f1f2f5_rounded_corners_twenty</item>
+        <item name="tabSelectedTextColor">@color/color_transparent</item>
+        <item name="tabTextColor">@color/color_transparent</item>
+        <item name="tabRippleColor">@null</item>
+    </style>
+
 </resources>

@@ -8,6 +8,8 @@ import com.arkivanov.mvikotlin.extensions.coroutines.bind
 import com.arkivanov.mvikotlin.extensions.coroutines.labels
 import com.nassdk.wallapp.R
 import com.nassdk.wallapp.databinding.ScreenNewsFeedBinding
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.header.HeaderViewConnections
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.header.HeaderViewImpl
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsViewConnections
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsViewImpl
 import com.nassdk.wallapp.library.coreui.base.BaseFragment
@@ -31,6 +33,10 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
                 }
             }
         }
+
+        HeaderViewImpl(
+            root = viewBinding.heeaderContainer
+        ).bind(store = store, viewConnections = HeaderViewConnections)
 
         PostsViewImpl(
             root = viewBinding.postsContainer

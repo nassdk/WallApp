@@ -8,6 +8,7 @@ interface NewsFeedStore : Store<Intent, State, Label> {
 
     sealed class Intent {
         object LoadMore : Intent()
+        object Idle : Intent()
         data class SortNewsBy(val sort: String) : Intent()
     }
 
