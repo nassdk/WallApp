@@ -9,7 +9,7 @@ interface NewsFeedStore : Store<Intent, State, Label> {
     sealed class Intent {
         object LoadMore : Intent()
         object Idle : Intent()
-        data class SortNewsBy(val sort: String) : Intent()
+        data class SortNewsBy(val sort: String? = null) : Intent()
     }
 
     data class State(
@@ -17,7 +17,8 @@ interface NewsFeedStore : Store<Intent, State, Label> {
         var loading: Boolean = false,
         var nextPage: List<PostModel> = emptyList(),
         var loadingNextPage: Boolean = false,
-        var cursor: String? = ""
+        var cursor: String? = "",
+        var currentSortType: String? = null
     )
 
     sealed class Label {

@@ -36,6 +36,7 @@ class NewsFeedStoreFactory @Inject constructor(
 
         override suspend fun executeIntent(intent: Intent, getState: () -> State) {
             when (intent) {
+                Intent.Idle -> Unit
                 Intent.LoadMore -> loadNextPage(prevState = getState.invoke())
                 is Intent.SortNewsBy -> loadNewsFeed(orderBy = intent.sort)
             }
@@ -53,7 +54,7 @@ class NewsFeedStoreFactory @Inject constructor(
 
             try {
                 val response = loadNewsFeedUseCase.invoke(orderBy = orderBy)
-                dispatch(Result.PostsLoaded(response = response))
+                dispatch(Result.PostsLoaded(response = response, orderBy = orderBy))
             } catch (throwable: Exception) {
                 errorHandler.proceedError(
                     throwable = throwable,
@@ -73,8 +74,16 @@ class NewsFeedStoreFactory @Inject constructor(
             dispatch(Result.LoadingMore)
 
             try {
-                val response = loadNewsFeedUseCase.invoke(after = prevState.cursor)
-                dispatch(Result.NextPageLoaded(response = response))
+                val response = loadNewsFeedUseCase.invoke(
+                    after = prevState.cursor,
+                    orderBy = prevState.currentSortType
+                )
+                dispatch(
+                    Result.NextPageLoaded(
+                        response = response,
+                        orderBy = prevState.currentSortType
+                    )
+                )
             } catch (throwable: Exception) {
                 errorHandler.proceedError(
                     throwable = throwable,
@@ -92,12 +101,14 @@ class NewsFeedStoreFactory @Inject constructor(
         override fun State.reduce(result: Result) = when (result) {
             is Result.PostsLoaded -> copy(
                 posts = result.response.posts,
-                cursor = result.response.cursor
+                cursor = result.response.cursor,
+                currentSortType = result.orderBy
             )
             is Result.NextPageLoaded -> {
                 copy(
                     nextPage = result.response.posts,
-                    cursor = result.response.cursor
+                    cursor = result.response.cursor,
+                    currentSortType = result.orderBy
                 )
             }
             Result.Loading -> copy(loading = true)
@@ -112,8 +123,15 @@ class NewsFeedStoreFactory @Inject constructor(
         object StopLoading : Result()
         object LoadingMore : Result()
         object StopLoadingMore : Result()
-        data class NextPageLoaded(val response: NewsFeedResponse) : Result()
-        data class PostsLoaded(val response: NewsFeedResponse) : Result()
+        data class NextPageLoaded(
+            val response: NewsFeedResponse,
+            val orderBy: String? = null
+        ) : Result()
+
+        data class PostsLoaded(
+            val response: NewsFeedResponse,
+            val orderBy: String? = null
+        ) : Result()
     }
 
     sealed class Action {

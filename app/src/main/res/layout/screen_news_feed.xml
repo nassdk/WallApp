@@ -15,6 +15,11 @@
         android:layout_height="wrap_content" />
 
     <FrameLayout
+        android:id="@+id/sortContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <FrameLayout
         android:id="@+id/postsContainer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />

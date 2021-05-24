@@ -14,6 +14,8 @@ import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsViewConnec
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsViewImpl
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.search.SearchViewConnections
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.search.SearchViewImpl
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.sort.SortViewConnections
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.sort.SortViewImpl
 import com.nassdk.wallapp.library.coreui.base.BaseFragment
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
@@ -43,6 +45,10 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
         SearchViewImpl(
             root = viewBinding.searchContainer
         ).bind(store = store, viewConnections = SearchViewConnections)
+
+        SortViewImpl(
+            root = viewBinding.sortContainer
+        ).bind(store = store, viewConnections = SortViewConnections)
 
         PostsViewImpl(
             root = viewBinding.postsContainer

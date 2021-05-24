@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingHorizontal="@dimen/base_padding_8"
+    android:paddingVertical="@dimen/base_padding_8"
+    android:paddingTop="0dp">
+
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/sortTabLayout"
+        style="@style/PurchaseTypeTabLayout"
+        android:layout_width="match_parent"
+        android:layout_height="28dp">
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Live" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="На слуху" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Новое" />
+
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Популярное" />
+
+    </com.google.android.material.tabs.TabLayout>
+
+</FrameLayout>
