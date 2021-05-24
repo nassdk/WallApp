@@ -136,31 +136,55 @@
     </style>
 
     <style name="Widget.App.TextView.Gray.14" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/gray_858585</item>
+        <item name="android:textColor">@color/gray_3C4B61</item>
         <item name="android:textSize">@dimen/text_size_14</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="Widget.App.TextView.Gray.16" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/gray_ADADAD</item>
+        <item name="android:textColor">@color/gray_3C4B61</item>
         <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="Widget.App.TextView.Gray.18" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/gray_ADADAD</item>
+        <item name="android:textColor">@color/gray_3C4B61</item>
         <item name="android:textSize">@dimen/text_size_18</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="Widget.App.TextView.Gray.20" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/gray_ADADAD</item>
+        <item name="android:textColor">@color/gray_3C4B61</item>
+        <item name="android:textSize">@dimen/text_size_20</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Widget.App.TextView.Gray_9EACC2.14" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/gray_9EACC2</item>
+        <item name="android:textSize">@dimen/text_size_14</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Widget.App.TextView.Gray_9EACC2.16" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/gray_9EACC2</item>
+        <item name="android:textSize">@dimen/text_size_16</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Widget.App.TextView.Gray_9EACC2.18" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/gray_9EACC2</item>
+        <item name="android:textSize">@dimen/text_size_18</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
+    <style name="Widget.App.TextView.Gray_9EACC2.20" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/gray_9EACC2</item>
         <item name="android:textSize">@dimen/text_size_20</item>
         <item name="android:textStyle">normal</item>
     </style>
 
     <style name="Widget.App.TextView.Black.24" parent="Widget.MaterialComponents.TextView">
-        <item name="android:textColor">@color/gray_ADADAD</item>
+        <item name="android:textColor">@color/black</item>
         <item name="android:textSize">@dimen/text_size_24</item>
         <item name="android:textStyle">normal</item>
     </style>
