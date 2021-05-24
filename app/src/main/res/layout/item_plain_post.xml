@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color_white"
+    android:paddingHorizontal="@dimen/base_padding_8"
+    android:paddingVertical="@dimen/base_padding_12">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/avatar"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/ic_avatar_placeholder" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/name"
+        style="@style/Widget.App.TextView.Black.Bold.14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/base_margin_8"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Calvin Watson" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="?android:actionBarItemBackground"
+        android:src="@drawable/ic_dots"
+        app:layout_constraintBottom_toBottomOf="@id/avatar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/avatar" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/date"
+        style="@style/Widget.App.TextView.Gray.12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/base_margin_8"
+        app:layout_constraintStart_toEndOf="@id/avatar"
+        app:layout_constraintTop_toBottomOf="@id/name"
+        tools:text="Today at 3:42" />
+
+    <com.nassdk.wallapp.library.coreui.util.ExpandableTextView
+        android:id="@+id/text"
+        style="@style/Widget.App.TextView.Black.24"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/base_margin_8"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/date"
+        app:trimLength="120"
+        tools:text="Adipisicing incididunt anim minim sunt tempor incididunt. Mollit est culpa commodo ad ipsum nostrud." />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/postImage"
+        android:layout_width="0dp"
+        android:layout_height="212dp"
+        android:layout_marginTop="@dimen/base_margin_12"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/likes"
+        style="@style/Widget.App.TextView.Gray_9EACC2.16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/base_margin_12"
+        android:drawableStart="@drawable/ic_like"
+        android:drawablePadding="@dimen/base_padding_4"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/postImage"
+        tools:text="41" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/comments"
+        style="@style/Widget.App.TextView.Gray_9EACC2.16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/base_margin_16"
+        android:layout_marginTop="@dimen/base_margin_12"
+        android:drawableStart="@drawable/ic_comment"
+        android:drawablePadding="@dimen/base_padding_4"
+        android:gravity="center_vertical"
+        app:layout_constraintStart_toEndOf="@id/likes"
+        app:layout_constraintTop_toBottomOf="@id/postImage"
+        tools:text="41" />
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/favorites"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/base_margin_16"
+        android:layout_marginTop="@dimen/base_margin_12"
+        android:src="@drawable/ic_favorites"
+        app:layout_constraintStart_toEndOf="@id/comments"
+        app:layout_constraintTop_toBottomOf="@id/postImage" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

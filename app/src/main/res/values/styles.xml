@@ -75,6 +75,12 @@
         <item name="android:textStyle">normal</item>
     </style>
 
+    <style name="Widget.App.TextView.White.12" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/color_white</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+        <item name="android:textStyle">normal</item>
+    </style>
+
     <style name="Widget.App.TextView.White.14" parent="Widget.MaterialComponents.TextView">
         <item name="android:textColor">@color/color_white</item>
         <item name="android:textSize">@dimen/text_size_14</item>
@@ -133,6 +139,12 @@
         <item name="android:textColor">@color/color_white</item>
         <item name="android:textSize">@dimen/text_size_24</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Widget.App.TextView.Gray.12" parent="Widget.MaterialComponents.TextView">
+        <item name="android:textColor">@color/gray_3C4B61</item>
+        <item name="android:textSize">@dimen/text_size_12</item>
+        <item name="android:textStyle">normal</item>
     </style>
 
     <style name="Widget.App.TextView.Gray.14" parent="Widget.MaterialComponents.TextView">
@@ -242,6 +254,12 @@
         <item name="android:textColor">@color/color_green_007844</item>
         <item name="android:textSize">@dimen/text_size_16</item>
         <item name="android:textStyle">bold</item>
+    </style>
+
+    <!-- Progress Bar -->
+
+    <style name="progressGrayTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorAccent">@color/gray_5E7697</item>
     </style>
 
 </resources>
