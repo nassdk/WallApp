@@ -83,6 +83,8 @@ dependencies {
     implementation(dependencyNotation = "com.google.dagger:hilt-android:2.35")
     kapt(dependencyNotation = "com.google.dagger:hilt-compiler:2.35")
 
+    implementation(dependencyNotation = "com.facebook.shimmer:shimmer:0.5.0")
+
     implementation(dependencyNotation = "com.google.code.gson:gson:2.8.6")
     implementation(dependencyNotation = "androidx.paging:paging-runtime-ktx:3.0.0")
 

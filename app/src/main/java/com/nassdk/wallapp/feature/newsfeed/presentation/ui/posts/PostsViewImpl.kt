@@ -15,6 +15,7 @@ import com.nassdk.wallapp.feature.newsfeed.domain.model.PostModel
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsView.Event
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsView.Model
 import com.nassdk.wallapp.library.coreui.util.PaginationListener
+import com.nassdk.wallapp.library.coreui.util.isVisible
 
 class PostsViewImpl(
     root: ViewGroup
@@ -67,7 +68,13 @@ class PostsViewImpl(
         diff(get = Model::nextPageLoading, set = ::renderNextPageLoading)
     }
 
-    private fun renderLoading(loading: Boolean) = Unit
+    private fun renderLoading(loading: Boolean) {
+
+        with(viewBinding) {
+            loadingView.root.isVisible(visible = loading)
+            recyclerPosts.isVisible(visible = !loading)
+        }
+    }
 
     private fun renderPosts(posts: List<PostModel>) {
         adapter.setPosts(posts = posts)
@@ -79,9 +86,5 @@ class PostsViewImpl(
 
     private fun renderNextPageLoading(loading: Boolean) {
         adapter.renderLoadingForNextPage(loading = loading)
-    }
-
-    companion object {
-        private const val VERTICAL_MARGIN = 12
     }
 }
