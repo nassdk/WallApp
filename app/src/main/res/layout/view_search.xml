@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white"
+    android:paddingHorizontal="@dimen/base_padding_8"
+    android:paddingTop="0dp"
+    android:paddingBottom="@dimen/base_padding_8">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:background="@drawable/background_gray_rounded_search_view"
+        android:drawableEnd="@drawable/ic_camera"
+        android:enabled="false"
+        android:focusable="false"
+        android:hint="Поделитесь мыслями..."
+        android:paddingHorizontal="@dimen/base_padding_16"
+        android:textColor="@color/black"
+        android:textColorHint="@color/gray_5E7697"
+        android:textSize="@dimen/text_size_16" />
+
+</FrameLayout>
