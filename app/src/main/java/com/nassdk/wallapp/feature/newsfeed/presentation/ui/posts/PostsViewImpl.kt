@@ -15,6 +15,7 @@ import com.nassdk.wallapp.feature.newsfeed.domain.model.PostModel
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsView.Event
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsView.Model
 import com.nassdk.wallapp.library.coreui.util.PaginationListener
+import com.nassdk.wallapp.library.coreui.util.applyAnimation
 import com.nassdk.wallapp.library.coreui.util.isVisible
 
 class PostsViewImpl(
@@ -78,10 +79,12 @@ class PostsViewImpl(
 
     private fun renderPosts(posts: List<PostModel>) {
         adapter.setPosts(posts = posts)
+        viewBinding.recyclerPosts.applyAnimation()
     }
 
     private fun renderNextPage(posts: List<PostModel>) {
         adapter.addPosts(posts = posts)
+        viewBinding.recyclerPosts.applyAnimation()
     }
 
     private fun renderNextPageLoading(loading: Boolean) {

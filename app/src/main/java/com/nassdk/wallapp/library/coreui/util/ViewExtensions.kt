@@ -1,8 +1,11 @@
 package com.nassdk.wallapp.library.coreui.util
 
 import android.view.View
+import android.view.animation.AnimationUtils
 import android.widget.LinearLayout
+import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.tabs.TabLayout
+import com.nassdk.wallapp.R
 
 
 fun View.makeVisible() {
@@ -44,4 +47,16 @@ fun TabLayout.toggleSelection(enabled: Boolean) {
     for (i in 0 until tabStrip.childCount) {
         tabStrip.getChildAt(i).isClickable = enabled
     }
+}
+
+fun RecyclerView.applyAnimation() {
+
+    val layoutAnimationController = AnimationUtils.loadLayoutAnimation(
+        context,
+        R.anim.fall_down
+    )
+
+    layoutAnimation = layoutAnimationController
+    adapter?.notifyDataSetChanged()
+    scheduleLayoutAnimation()
 }

@@ -27,8 +27,6 @@ class PostsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             clear()
             addAll(posts)
         }
-
-        notifyDataSetChanged()
     }
 
     fun addPosts(posts: List<PostModel>) {
@@ -36,8 +34,6 @@ class PostsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
         this.posts.run {
             addAll(posts)
         }
-
-        notifyDataSetChanged()
     }
 
     fun clearData() = posts.clear()
