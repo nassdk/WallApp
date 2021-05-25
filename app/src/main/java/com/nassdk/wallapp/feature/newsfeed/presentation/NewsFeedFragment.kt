@@ -31,22 +31,22 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
 
     private val alertNetworkLost by lazy(LazyThreadSafetyMode.NONE) {
         alert(
-            title = "Внимание",
-            message = "Интернет-соединение прервано. Пожалуйста, проверьте свое подключение, чтобы получать актуальный контент."
+            title = getString(R.string.screen_news_feed_attention_title),
+            message = getString(R.string.screen_news_feed_sort_connection_lost_message)
         ) {
-            positiveButton(text = "Ok")
+            positiveButton(text = getString(R.string.screen_news_feed_ok_button_title))
         }
     }
 
     private val alertNetworkRetrieved by lazy(LazyThreadSafetyMode.NONE) {
         alert(
-            title = "Внимание!",
-            message = "Интернет-соединение восстановлено! Обновить новостную ленту?"
+            title = getString(R.string.screen_news_feed_attention_title),
+            message = getString(R.string.screen_news_feed_sort_connection_retrieved_message)
         ) {
-            positiveButton(text = "Да") {
+            positiveButton(text = getString(R.string.screen_news_feed_yes_button_title)) {
                 store.accept(NewsFeedStore.Intent.UpdateScreen)
             }
-            negativeButton(text = "Отмена")
+            negativeButton(text = getString(R.string.screen_news_feed_cancel_button_title))
         }
     }
 

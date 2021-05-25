@@ -16,22 +16,22 @@
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Live" />
+            android:text="@string/screen_news_feed_sort_live_tab_title" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="На слуху" />
+            android:text="@string/screen_news_feed_sort_most_commented_tab_title" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Новое" />
+            android:text="@string/screen_news_feed_sort_new_tab_title" />
 
         <com.google.android.material.tabs.TabItem
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Популярное" />
+            android:text="@string/screen_news_feed_sort_popular_tab_title" />
 
     </com.google.android.material.tabs.TabLayout>
 

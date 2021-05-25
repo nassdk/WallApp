@@ -6,5 +6,16 @@
     <string name="error_server_internal">Не удалось установить соединение с сервером. Пожалуйста, попробуйте позже!</string>
     <string name="error_server_network">Нет удалось установить соединение с сервом. Пожалуйста, проверьте свое интернет подключение!</string>
     <string name="error_server_unknown">Неизвестная ошибка. Пожалуйста, попробуйте позже!</string>
+    <string name="screen_news_feed_sort_live_tab_title">Live</string>
+    <string name="screen_news_feed_sort_most_commented_tab_title">На слуху</string>
+    <string name="screen_news_feed_sort_new_tab_title">Новое</string>
+    <string name="screen_news_feed_sort_popular_tab_title">Популярное</string>
+    <string name="screen_news_feed_attention_title">Внимание!</string>
+    <string name="screen_news_feed_sort_connection_lost_message">Интернет-соединение прервано. Пожалуйста, проверьте свое подключение, чтобы получать актуальный контент.</string>
+    <string name="screen_news_feed_ok_button_title">Ok</string>
+    <string name="screen_news_feed_yes_button_title">Да</string>
+    <string name="screen_news_feed_cancel_button_title">Отмена</string>
+    <string name="screen_news_feed_sort_connection_retrieved_message">Интернет-соединение восстановлено! Обновить новостную ленту?</string>
+    <string name="screen_news_feed_share_field_hint">Поделитесь мыслями...</string>
 
 </resources>

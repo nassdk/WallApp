@@ -14,7 +14,7 @@
         android:drawableEnd="@drawable/ic_camera"
         android:enabled="false"
         android:focusable="false"
-        android:hint="Поделитесь мыслями..."
+        android:hint="@string/screen_news_feed_share_field_hint"
         android:paddingHorizontal="@dimen/base_padding_16"
         android:textColor="@color/black"
         android:textColorHint="@color/gray_5E7697"
