@@ -87,6 +87,8 @@ dependencies {
 
     implementation(dependencyNotation = "com.google.code.gson:gson:2.8.6")
 
+    implementation(dependencyNotation = "androidx.lifecycle:lifecycle-runtime-ktx:2.3.1")
+
     implementation(dependencyNotation = "com.squareup.okhttp3:okhttp:4.9.0")
     implementation(dependencyNotation = "com.squareup.okhttp3:logging-interceptor:4.9.0")
 
