@@ -94,10 +94,6 @@ dependencies {
     implementation(dependencyNotation = "com.squareup.retrofit2:retrofit:2.9.0")
     implementation(dependencyNotation = "com.squareup.retrofit2:converter-gson:2.9.0")
 
-    implementation(dependencyNotation = "com.kirich1409.viewbindingpropertydelegate:viewbindingpropertydelegate:1.4.1")
-
-    implementation(dependencyNotation = "com.jakewharton.timber:timber:4.7.1")
-
     implementation(dependencyNotation = "io.coil-kt:coil:1.1.1")
 
     implementation(dependencyNotation = "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.4.3")

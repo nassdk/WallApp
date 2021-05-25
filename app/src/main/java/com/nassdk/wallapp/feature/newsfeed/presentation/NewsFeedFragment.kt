@@ -1,7 +1,6 @@
 package com.nassdk.wallapp.feature.newsfeed.presentation
 
 import android.widget.Toast
-import by.kirich1409.viewbindingdelegate.viewBinding
 import com.arkivanov.mvikotlin.core.binder.BinderLifecycleMode
 import com.arkivanov.mvikotlin.core.lifecycle.asMviLifecycle
 import com.arkivanov.mvikotlin.extensions.coroutines.bind
@@ -24,10 +23,10 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
 
-    @Inject
-    lateinit var store: NewsFeedStore
+    @Inject lateinit var store: NewsFeedStore
 
-    private val viewBinding: ScreenNewsFeedBinding by viewBinding()
+    private var _viewBinding: ScreenNewsFeedBinding? = null
+    private val viewBinding get() = _viewBinding!!
 
     private val alertNetworkLost by lazy(LazyThreadSafetyMode.NONE) {
         alert(
@@ -51,6 +50,8 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
     }
 
     override fun prepareUi() {
+
+        _viewBinding = ScreenNewsFeedBinding.bind(requireView())
 
         bind(this@NewsFeedFragment.lifecycle.asMviLifecycle(), BinderLifecycleMode.START_STOP) {
             store.labels.bindTo { label ->
@@ -88,5 +89,15 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
 
         if (isConnected) alertNetworkRetrieved.show()
         else alertNetworkLost.show()
+    }
+
+    override fun onDestroyView() {
+        _viewBinding = null
+        super.onDestroyView()
+    }
+
+    override fun onDestroy() {
+        store.dispose()
+        super.onDestroy()
     }
 }
