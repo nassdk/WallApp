@@ -86,7 +86,6 @@ dependencies {
     implementation(dependencyNotation = "com.facebook.shimmer:shimmer:0.5.0")
 
     implementation(dependencyNotation = "com.google.code.gson:gson:2.8.6")
-    implementation(dependencyNotation = "androidx.paging:paging-runtime-ktx:3.0.0")
 
     implementation(dependencyNotation = "com.squareup.okhttp3:okhttp:4.9.0")
     implementation(dependencyNotation = "com.squareup.okhttp3:logging-interceptor:4.9.0")
