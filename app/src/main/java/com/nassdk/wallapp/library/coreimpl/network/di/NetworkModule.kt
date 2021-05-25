@@ -6,9 +6,11 @@ import com.google.gson.GsonBuilder
 import com.nassdk.wallapp.BuildConfig
 import com.nassdk.wallapp.library.coreapi.network.ApiService
 import com.nassdk.wallapp.library.coreimpl.network.connection.NetworkChecking
+import com.nassdk.wallapp.library.coreimpl.network.connection.NetworkStatusPublisher
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -21,6 +23,12 @@ import javax.inject.Singleton
 abstract class NetworkModule {
 
     companion object {
+
+        @Provides
+        @Singleton
+        fun provideNetworkStatusPublisher(
+            @ApplicationContext context: Context
+        ) = NetworkStatusPublisher(networkChecking = NetworkChecking(context = context))
 
         @Provides
         @Singleton

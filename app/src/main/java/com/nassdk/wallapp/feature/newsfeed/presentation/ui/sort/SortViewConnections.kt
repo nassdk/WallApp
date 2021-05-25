@@ -11,7 +11,8 @@ object SortViewConnections :
 
     override val stateToModel: (NewsFeedStore.State) -> Model = { state ->
         Model(
-            loading = state.loading || state.loadingNextPage
+            loading = state.loading || state.loadingNextPage,
+            hasConnection = state.hasConnection
         )
     }
 

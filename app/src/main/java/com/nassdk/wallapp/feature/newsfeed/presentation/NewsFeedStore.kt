@@ -9,6 +9,7 @@ interface NewsFeedStore : Store<Intent, State, Label> {
     sealed class Intent {
         object LoadMore : Intent()
         object Idle : Intent()
+        object UpdateScreen : Intent()
         data class SortNewsBy(val sort: String? = null) : Intent()
     }
 
@@ -18,10 +19,12 @@ interface NewsFeedStore : Store<Intent, State, Label> {
         var nextPage: List<PostModel> = emptyList(),
         var loadingNextPage: Boolean = false,
         var cursor: String? = "",
-        var currentSortType: String? = null
+        var currentSortType: String? = null,
+        var hasConnection: Boolean = true
     )
 
     sealed class Label {
         data class Error(val message: String) : Label()
+        data class NetworkStatusChanged(val isConnected: Boolean) : Label()
     }
 }

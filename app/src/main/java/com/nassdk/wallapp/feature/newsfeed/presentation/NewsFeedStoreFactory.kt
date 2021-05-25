@@ -8,12 +8,15 @@ import com.arkivanov.mvikotlin.extensions.coroutines.SuspendExecutor
 import com.nassdk.wallapp.feature.newsfeed.domain.model.NewsFeedResponse
 import com.nassdk.wallapp.feature.newsfeed.domain.usecase.LoadNewsFeedUseCase
 import com.nassdk.wallapp.feature.newsfeed.presentation.NewsFeedStore.*
+import com.nassdk.wallapp.library.coreimpl.network.connection.NetworkStatusPublisher
 import com.nassdk.wallapp.library.coreui.error.UiErrorHandler
+import kotlinx.coroutines.flow.collect
 import javax.inject.Inject
 
 class NewsFeedStoreFactory @Inject constructor(
     private val storeFactory: StoreFactory,
     private val loadNewsFeedUseCase: LoadNewsFeedUseCase,
+    private val networkStatusPublisher: NetworkStatusPublisher,
     private val errorHandler: UiErrorHandler
 ) {
     fun create(): NewsFeedStore =
@@ -25,10 +28,15 @@ class NewsFeedStoreFactory @Inject constructor(
             reducer = ReducerImpl()
         ) {}
 
-    private class BootstrapperImpl : SuspendBootstrapper<Action>() {
+    private inner class BootstrapperImpl : SuspendBootstrapper<Action>() {
 
         override suspend fun bootstrap() {
+
             dispatch(Action.LoadNewsFeed)
+
+            networkStatusPublisher.getNotifier().collect { isConnected ->
+                dispatch(Action.NetworkStatusChanged(isConnected = isConnected))
+            }
         }
     }
 
@@ -38,6 +46,7 @@ class NewsFeedStoreFactory @Inject constructor(
             when (intent) {
                 Intent.Idle -> Unit
                 Intent.LoadMore -> loadNextPage(prevState = getState.invoke())
+                Intent.UpdateScreen -> loadNewsFeed()
                 is Intent.SortNewsBy -> loadNewsFeed(orderBy = intent.sort)
             }
         }
@@ -45,6 +54,10 @@ class NewsFeedStoreFactory @Inject constructor(
         override suspend fun executeAction(action: Action, getState: () -> State) {
             when (action) {
                 Action.LoadNewsFeed -> loadNewsFeed()
+                is Action.NetworkStatusChanged -> {
+                    dispatch(Result.NetworkStatusChanged(isConnected = action.isConnected))
+                    publish(Label.NetworkStatusChanged(isConnected = action.isConnected))
+                }
             }
         }
 
@@ -111,6 +124,7 @@ class NewsFeedStoreFactory @Inject constructor(
                     currentSortType = result.orderBy
                 )
             }
+            is Result.NetworkStatusChanged -> copy(hasConnection = result.isConnected)
             Result.Loading -> copy(loading = true)
             Result.LoadingMore -> copy(loadingNextPage = true)
             Result.StopLoading -> copy(loading = false)
@@ -123,6 +137,7 @@ class NewsFeedStoreFactory @Inject constructor(
         object StopLoading : Result()
         object LoadingMore : Result()
         object StopLoadingMore : Result()
+        data class NetworkStatusChanged(val isConnected: Boolean) : Result()
         data class NextPageLoaded(
             val response: NewsFeedResponse,
             val orderBy: String? = null
@@ -136,5 +151,6 @@ class NewsFeedStoreFactory @Inject constructor(
 
     sealed class Action {
         object LoadNewsFeed : Action()
+        data class NetworkStatusChanged(val isConnected: Boolean) : Action()
     }
 }

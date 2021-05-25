@@ -17,6 +17,7 @@ import com.nassdk.wallapp.feature.newsfeed.presentation.ui.search.SearchViewImpl
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.sort.SortViewConnections
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.sort.SortViewImpl
 import com.nassdk.wallapp.library.coreui.base.BaseFragment
+import com.nassdk.wallapp.library.coreui.util.alert
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
@@ -28,12 +29,36 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
 
     private val viewBinding: ScreenNewsFeedBinding by viewBinding()
 
+    private val alertNetworkLost by lazy(LazyThreadSafetyMode.NONE) {
+        alert(
+            title = "Внимание",
+            message = "Интернет-соединение прервано. Пожалуйста, проверьте свое подключение, чтобы получать актуальный контент."
+        ) {
+            positiveButton(text = "Ok")
+        }
+    }
+
+    private val alertNetworkRetrieved by lazy(LazyThreadSafetyMode.NONE) {
+        alert(
+            title = "Внимание!",
+            message = "Интернет-соединение восстановлено! Обновить новостную ленту?"
+        ) {
+            positiveButton(text = "Да") {
+                store.accept(NewsFeedStore.Intent.UpdateScreen)
+            }
+            negativeButton(text = "Отмена")
+        }
+    }
+
     override fun prepareUi() {
 
         bind(this@NewsFeedFragment.lifecycle.asMviLifecycle(), BinderLifecycleMode.START_STOP) {
             store.labels.bindTo { label ->
                 when (label) {
                     is NewsFeedStore.Label.Error -> showError(error = label.message)
+                    is NewsFeedStore.Label.NetworkStatusChanged -> onNetworkStatusChanged(
+                        isConnected = label.isConnected
+                    )
                 }
             }
         }
@@ -57,5 +82,11 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
 
     private fun showError(error: String) {
         Toast.makeText(requireContext(), error, Toast.LENGTH_LONG).show()
+    }
+
+    private fun onNetworkStatusChanged(isConnected: Boolean) {
+
+        if (isConnected) alertNetworkRetrieved.show()
+        else alertNetworkLost.show()
     }
 }

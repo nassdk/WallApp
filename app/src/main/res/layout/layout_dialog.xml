@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cardContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginHorizontal="@dimen/base_margin_24"
+    app:cardBackgroundColor="@color/color_white"
+    app:cardCornerRadius="16dp"
+    tools:layout_gravity="center">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:paddingTop="0dp"
+        android:paddingBottom="@dimen/base_padding_16">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialogInfoTitleTextView"
+            style="@style/Widget.App.TextView.Black.Bold.18"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/base_margin_16"
+            android:layout_marginTop="@dimen/base_margin_16"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Титульник" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/dialogInfoMessageTextView"
+            style="@style/Widget.App.TextView.Black.16"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/base_margin_16"
+            android:layout_marginTop="@dimen/base_margin_8"
+            android:textAlignment="center"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/dialogInfoTitleTextView"
+            tools:text="Титульник" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialogInfoPositiveButton"
+            style="@style/Widget.App.Button.Gray.Rounded.Eight"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height_48"
+            android:layout_marginHorizontal="@dimen/base_margin_16"
+            android:layout_marginTop="@dimen/base_margin_24"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialogInfoMessageTextView"
+            tools:text="Ок" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dialogInfoNegativeButton"
+            style="@style/Widget.App.Button.White"
+            android:layout_width="0dp"
+            android:layout_height="@dimen/button_height_48"
+            android:layout_marginHorizontal="@dimen/base_margin_16"
+            android:layout_marginTop="@dimen/base_margin_8"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/dialogInfoPositiveButton"
+            tools:text="Отмена" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

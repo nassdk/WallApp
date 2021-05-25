@@ -1,15 +1,55 @@
 package com.nassdk.wallapp.feature.newsfeed.data.network
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
+import com.nassdk.wallapp.feature.newsfeed.data.database.PostEntity
 import com.nassdk.wallapp.feature.newsfeed.domain.model.*
 import com.nassdk.wallapp.library.coreui.util.convertDate
+import java.lang.reflect.Type
 import javax.inject.Inject
 
-class NewsFeedMapper @Inject constructor() {
+class NewsFeedMapper @Inject constructor(
+    private val gson: Gson
+) {
 
     fun map(model: NewsFeedResponseDataModel) = NewsFeedResponse(
         cursor = model.data.cursor,
         posts = mapPosts(posts = model.data.posts.orEmpty())
     )
+
+    fun mapEntityToPost(entities: List<PostEntity>): List<PostModel> {
+
+        //Не стал кастомные парсеры писать для sealed классов.
+        val typeStatus: Type = object : TypeToken<PostStatObjectModel>() {}.type
+
+        return entities.map { entity ->
+            entity.run {
+                PostModel(
+                    id = id,
+                    authorName = authorName,
+                    createAt = createAt,
+                    authorImage = authorImage,
+                    type = PostType.Plain,
+                    contents = emptyList(),
+                    postStats = gson.fromJson(postStats, typeStatus)
+                )
+            }
+        }
+    }
+
+    fun mapPostToEntity(posts: List<PostModel>) = posts.map { post ->
+        post.run {
+            PostEntity(
+                id = id,
+                authorName = authorName,
+                createAt = createAt,
+                authorImage = authorImage,
+                postType = gson.toJson(type),
+                contents = gson.toJson(contents),
+                postStats = gson.toJson(postStats)
+            )
+        }
+    }
 
     private fun mapPosts(posts: List<PostNetModel>) = posts.map { post ->
         post.run {
@@ -43,7 +83,6 @@ class NewsFeedMapper @Inject constructor() {
 
     private fun mapDataType(type: String?) = when (type) {
         DataType.Image.value -> DataType.Image
-        DataType.Tag.value -> DataType.Tag
         DataType.Text.value -> DataType.Text
         else -> null
     }
@@ -56,7 +95,6 @@ class NewsFeedMapper @Inject constructor() {
     }
 
     private fun mapDataValue(type: String?, dataModel: PostDataNet?) = when (type) {
-        DataType.Tag.value -> dataModel?.values
         DataType.Text.value -> listOf(dataModel?.value.orEmpty())
         DataType.Image.value -> listOf(
             dataModel?.original?.url ?: dataModel?.small?.url

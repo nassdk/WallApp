@@ -3,6 +3,7 @@ package com.nassdk.wallapp.feature.newsfeed.presentation.di
 import com.arkivanov.mvikotlin.main.store.DefaultStoreFactory
 import com.nassdk.wallapp.feature.newsfeed.domain.usecase.LoadNewsFeedUseCase
 import com.nassdk.wallapp.feature.newsfeed.presentation.NewsFeedStoreFactory
+import com.nassdk.wallapp.library.coreimpl.network.connection.NetworkStatusPublisher
 import com.nassdk.wallapp.library.coreui.error.UiErrorHandler
 import dagger.Module
 import dagger.Provides
@@ -16,10 +17,12 @@ object NewsFeedModule {
     @Provides
     fun provideNewsFeedStore(
         loadNewsFeedUseCase: LoadNewsFeedUseCase,
-        errorHandler: UiErrorHandler
+        errorHandler: UiErrorHandler,
+        networkStatusPublisher: NetworkStatusPublisher
     ) = NewsFeedStoreFactory(
         storeFactory = DefaultStoreFactory,
         loadNewsFeedUseCase = loadNewsFeedUseCase,
+        networkStatusPublisher = networkStatusPublisher,
         errorHandler = errorHandler
     ).create()
 }

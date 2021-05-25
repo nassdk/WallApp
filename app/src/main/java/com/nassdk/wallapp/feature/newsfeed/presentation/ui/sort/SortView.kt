@@ -7,7 +7,8 @@ import com.nassdk.wallapp.feature.newsfeed.presentation.ui.sort.SortView.Model
 interface SortView : MviView<Model, Event> {
 
     data class Model(
-        val loading: Boolean
+        val loading: Boolean,
+        val hasConnection: Boolean
     )
 
     sealed class Event {
