@@ -1,13 +1,13 @@
-package com.nassdk.wallapp.feature.newsfeed.presentation.ui.search
+package com.nassdk.wallapp.feature.newsfeed.presentation.ui.newpost
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import com.arkivanov.mvikotlin.core.view.BaseMviView
 import com.nassdk.wallapp.databinding.ViewSearchBinding
-import com.nassdk.wallapp.feature.newsfeed.presentation.ui.search.SearchView.Event
-import com.nassdk.wallapp.feature.newsfeed.presentation.ui.search.SearchView.Model
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.newpost.NewPostView.Event
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.newpost.NewPostView.Model
 
-class SearchViewImpl(
+class NewPostViewImpl(
     root: ViewGroup
 ) : BaseMviView<Model, Event>() {
 

@@ -10,10 +10,10 @@ import com.nassdk.wallapp.R
 import com.nassdk.wallapp.databinding.ScreenNewsFeedBinding
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.header.HeaderViewConnections
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.header.HeaderViewImpl
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.newpost.NewPostViewConnections
+import com.nassdk.wallapp.feature.newsfeed.presentation.ui.newpost.NewPostViewImpl
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsViewConnections
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.posts.PostsViewImpl
-import com.nassdk.wallapp.feature.newsfeed.presentation.ui.search.SearchViewConnections
-import com.nassdk.wallapp.feature.newsfeed.presentation.ui.search.SearchViewImpl
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.sort.SortViewConnections
 import com.nassdk.wallapp.feature.newsfeed.presentation.ui.sort.SortViewImpl
 import com.nassdk.wallapp.library.coreui.base.BaseFragment
@@ -64,12 +64,12 @@ class NewsFeedFragment : BaseFragment(R.layout.screen_news_feed) {
         }
 
         HeaderViewImpl(
-            root = viewBinding.heeaderContainer
+            root = viewBinding.headerContainer
         ).bind(store = store, viewConnections = HeaderViewConnections)
 
-        SearchViewImpl(
-            root = viewBinding.searchContainer
-        ).bind(store = store, viewConnections = SearchViewConnections)
+        NewPostViewImpl(
+            root = viewBinding.newPostContainer
+        ).bind(store = store, viewConnections = NewPostViewConnections)
 
         SortViewImpl(
             root = viewBinding.sortContainer
