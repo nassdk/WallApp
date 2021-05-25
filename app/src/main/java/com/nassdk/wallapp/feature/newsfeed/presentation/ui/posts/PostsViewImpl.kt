@@ -84,7 +84,6 @@ class PostsViewImpl(
 
     private fun renderNextPage(posts: List<PostModel>) {
         adapter.addPosts(posts = posts)
-        viewBinding.recyclerPosts.applyAnimation()
     }
 
     private fun renderNextPageLoading(loading: Boolean) {

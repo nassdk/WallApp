@@ -31,9 +31,8 @@ class PostsAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     fun addPosts(posts: List<PostModel>) {
 
-        this.posts.run {
-            addAll(posts)
-        }
+        this.posts.addAll(posts)
+        notifyDataSetChanged()
     }
 
     fun renderLoadingForNextPage(loading: Boolean) {
